@@ -14,7 +14,7 @@
     </define>
     <define append="true">
       <name>CONFIG::timeStamp</name>
-      <value>'22.01.2015'</value>
+      <value>'27.01.2015'</value>
     </define>
     <define append="true">
       <name>CONFIG::air</name>
@@ -30,16 +30,16 @@
     </define>
     <verbose-stacktraces>true</verbose-stacktraces>
     <source-path append="true">
-      <path-element>D:\Develop\Flash\Starling\DynamicTexture\src</path-element>
+      <path-element>D:\Develop\Flash\Libriaries\Descriptions\DMT\UnifiedLayout\src</path-element>
+      <path-element>D:\Develop\Flash\Libriaries\Descriptions\DMT\DMT\src</path-element>
       <path-element>F:\Programming\FlashDevelop\Library\AS3\classes</path-element>
     </source-path>
     <library-path append="true">
-      <path-element>D:\Develop\Flash\Starling\DynamicTexture\libs\starling.swc</path-element>
-      <path-element>D:\Develop\Flash\Starling\DynamicTexture\libs\visuals.swc</path-element>
+      <path-element>D:\Develop\Flash\Libriaries\Descriptions\DMT\UnifiedLayout\assets\visual\visuals.swc</path-element>
     </library-path>
   </compiler>
   <file-specs>
-    <path-element>D:\Develop\Flash\Starling\DynamicTexture\src\Main.as</path-element>
+    <path-element>D:\Develop\Flash\Libriaries\Descriptions\DMT\UnifiedLayout\src\Main.as</path-element>
   </file-specs>
   <default-background-color>#FFFFFF</default-background-color>
   <default-frame-rate>30</default-frame-rate>
