@@ -56,8 +56,8 @@
   <libraryPaths>
     <element path="libs\starling.swc" />
     <element path="libs\visuals.swc" />
-    <element path="assets\visual\visuals.swc" />
     <element path="libs\swc\starling.swc" />
+    <element path="libs\swc\visuals.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>

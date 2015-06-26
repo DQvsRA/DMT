@@ -1,12 +1,14 @@
 package 
 {
 	import com.xtdstudios.DMT.DMTBasic;
-	import flash.display.DisplayObject;
 	import flash.display.Stage;
-	import flash.events.Event;
 	import starling.core.Starling;
+	import starling.display.DisplayObject;
 	import starling.display.Sprite;
-	import ui.Layout;
+	import starling.events.Event;
+	import ui.base.Layout;
+	import ui.base.LayoutProcessor;
+	import ui.MainLayout;
 	
 	/**
 	 * ...
@@ -14,37 +16,40 @@ package
 	 */
 	public final class Application extends Sprite 
 	{
-		private var _dmtBasic:DMTBasic;
+		private var _layoutProcessor:LayoutProcessor;
 		private var starlingUIContainer : Sprite;
 		
 		public function Application() 
 		{
 			super();
 			
-			_dmtBasic = new DMTBasic("UIContainer", true);
-			_dmtBasic.addEventListener(Event.COMPLETE, HandleComplete);
-			if (_dmtBasic.cacheExist() == true){
-				_dmtBasic.process(); // will use the existing cache
+			_layoutProcessor = new LayoutProcessor("UIContainer", LayoutComplete, false);
+			if (_layoutProcessor.cacheExist() == true) {
+				_layoutProcessor.process(); // will use the existing cache
 			}
-			else doLayoutUI(); // will be done one time per device  
+			else LayoutUI(); // will be done one time per device  
 		}
 		
-		private function doLayoutUI():void {
+		private function LayoutUI():void {
 			var ns:Stage = Starling.current.nativeStage;
 			var sw:uint = ns.stageWidth;
 			var sh:uint = ns.stageHeight;
-			var layout:Layout = new Layout(sw, sh);
-			_dmtBasic.addItemToRaster(layout.layoutTypesScreen, Layout.TYPE_SCREEN);
-			_dmtBasic.process(); // will rasterize the given assets  
+			var mainLayout:MainLayout = new MainLayout(sw, sh);
+			_layoutProcessor.addItemToRaster(mainLayout.layout, MainLayout.NAME);
+			_layoutProcessor.process(); // will rasterize the given assets  
 		}
 		
 		//==================================================================================================
-		private function HandleComplete(e:Event):void {
+		private function LayoutComplete():void {
 		//==================================================================================================
-			_dmtBasic.removeEventListener(Event.COMPLETE, HandleComplete);
-			starlingUIContainer = _dmtBasic.getAssetByUniqueAlias(Layout.TYPE_SCREEN) as Sprite;
-			
+			starlingUIContainer = _layoutProcessor.getAssetByUniqueAlias(MainLayout.NAME) as Sprite;
+			starlingUIContainer.addEventListener(Event.TRIGGERED, Handle_Button_Triggered);
 			addChild(starlingUIContainer);
+		}
+		
+		private function Handle_Button_Triggered(e:Event):void 
+		{
+			trace((e.target as DisplayObject).name);
 		}
 	}
 }

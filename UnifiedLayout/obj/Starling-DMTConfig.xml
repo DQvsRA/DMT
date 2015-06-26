@@ -14,7 +14,7 @@
     </define>
     <define append="true">
       <name>CONFIG::timeStamp</name>
-      <value>'27.01.2015'</value>
+      <value>'26.06.2015'</value>
     </define>
     <define append="true">
       <name>CONFIG::air</name>
@@ -35,8 +35,8 @@
       <path-element>F:\Programming\FlashDevelop\Library\AS3\classes</path-element>
     </source-path>
     <library-path append="true">
-      <path-element>D:\Develop\Flash\Libriaries\Descriptions\DMT\UnifiedLayout\assets\visual\visuals.swc</path-element>
       <path-element>D:\Develop\Flash\Libriaries\Descriptions\DMT\UnifiedLayout\libs\swc\starling.swc</path-element>
+      <path-element>D:\Develop\Flash\Libriaries\Descriptions\DMT\UnifiedLayout\libs\swc\visuals.swc</path-element>
     </library-path>
   </compiler>
   <file-specs>
